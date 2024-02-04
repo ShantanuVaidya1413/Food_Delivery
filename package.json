@@ -1,0 +1,31 @@
+{
+  "name": "namaste-react-code",
+  "version": "1.0.0",
+  "description": "This is namaste react by Shantanu Vaidya",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build src/index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShantanuVaidya1413/Namaste-react.git"
+  },
+  "author": "Shantanu Vaidya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShantanuVaidya1413/Namaste-react/issues"
+  },
+  "homepage": "https://github.com/ShantanuVaidya1413/Namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "postcss": "^8.4.33",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3"
+  }
+}
