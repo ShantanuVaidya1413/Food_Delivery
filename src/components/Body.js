@@ -1,13 +1,16 @@
 import RestCard, {UpdatedCard} from "./RestCard";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
   const [searchFilteredList, setSearchFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const {Username, setUserName} = useContext(UserContext);
 
   const UpdatedRestCard = UpdatedCard(RestCard);
 
@@ -23,8 +26,6 @@ const Body = () => {
     });
     
     const json = await data.json();
-    
-    console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
  
     setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
@@ -64,6 +65,9 @@ const Body = () => {
                 setSearchFilteredList(filteredlist);
             }}
             className="m-4 border-black border rounded-lg border-solid p-4 bg-green-100 hover:bg-green-200">Top Rated restaurants</button>
+
+              <input className="border border-black p-2" value={Username} onChange={(e)=>setUserName(e.target.value)}></input>
+
             </div>
             <div className="rest-container flex flex-wrap p-4 m-4 bg-green-50">
                 {searchFilteredList.map((restaurant) => {
@@ -72,7 +76,7 @@ const Body = () => {
                     </Link>
                   )
                 })}
-                {console.log(searchFilteredList)};
+                
             </div>
         </div>
     )

@@ -1,9 +1,11 @@
 import { CDN_URL } from "../utils/constants";
-
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestCard = (props) => {
     const {resData} = props;
- 
+    
+    const {Username} = useContext(UserContext);
     
     const {cloudinaryImageId, name, sla, avgRating, cuisines, areaName, costForTwo} = resData?.info;
 
@@ -20,6 +22,7 @@ const RestCard = (props) => {
              <h4 className="flex flex-wrap">{cuisines.join(', ')}</h4>
              <h4>{avgRating} stars</h4>
              <h4>{deliveryTime} minutes</h4>
+             <h4>{Username}</h4>
          </div>
      )
  }

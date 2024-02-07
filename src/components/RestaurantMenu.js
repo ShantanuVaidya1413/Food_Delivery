@@ -7,6 +7,7 @@ import { useState } from "react";
 const RestaurantMenu = () => {
 
     const [showIndex, setShowIndex] = useState(null);
+    const [showItem, setShowItem] = useState(true);
 
     const {resId} = useParams();
 
@@ -30,9 +31,10 @@ const RestaurantMenu = () => {
             <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
             {category.map((category, index)=>
                 <RestaurantCategory key={category?.card?.card?.title} 
-                showItem= {index===showIndex && true} 
+                showItem= {index===showIndex && showItem} 
                 setShowIndex={()=>setShowIndex(index)}
-                data={category?.card?.card}/> 
+                data={category?.card?.card}
+                setShowItem={()=>setShowItem(showItem)}/> 
             )}
         </div>
     )
